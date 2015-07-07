@@ -58,6 +58,7 @@
             inProximity = document.querySelector('.d');
         
         if ('ondeviceproximity' in window) {
+          alert('A');
             window.addEventListener('deviceproximity', function(event) {
             proximityValue.innerHTML = event.value;
             proximityMax.innerHTML = event.max;
@@ -67,6 +68,7 @@
         
         
         if ('onuserproximity' in window) {
+          alert('B');
             window.addEventListener('userproximity', function(event) {
             inProximity.innerHTML = event.near;
             });
