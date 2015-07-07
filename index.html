@@ -25,7 +25,7 @@
         <p>Front-end Developer!</p>
       </header>
       <section>
-        <p>Hi</p>
+        <p class="a">Hi</p><p class="b">Hi</p><p class="c">Hi</p><p class="d">Hi</p>
       </section>
       <footer>
         <p>Copyright &copy; 2015</p>
@@ -51,6 +51,28 @@
                 lastY = y;
                 lastZ = z;
         }
+        
+        var proximityValue = document.queryselector('.a'),
+            proximityMax =  document.queryselector('.b'),
+            proximityMin = document.queryselector('.c'),
+            inProximity = document.queryselector('.d');
+        
+        if ('ondeviceproximity' in window) {
+            window.addEventListener('deviceproximity', function(event) {
+            proximityValue.innerHTML = event.value;
+            proximityMax.innerHTML = event.max;
+            proximityMin.innerHTML = event.min;
+            });
+        }
+        
+        
+        if ('onuserproximity' in window) {
+            window.addEventListener('userproximity', function(event) {
+            inProximity.innerHTML = event.near;
+            });
+        }
+        
+        
     </script>
   </body>
 </html>
