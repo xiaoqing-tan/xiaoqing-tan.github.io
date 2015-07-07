@@ -52,10 +52,10 @@
                 lastZ = z;
         }
         
-        var proximityValue = document.queryselector('.a'),
-            proximityMax =  document.queryselector('.b'),
-            proximityMin = document.queryselector('.c'),
-            inProximity = document.queryselector('.d');
+        var proximityValue = document.querySelector('.a'),
+            proximityMax =  document.querySelector('.b'),
+            proximityMin = document.querySelector('.c'),
+            inProximity = document.querySelector('.d');
         
         if ('ondeviceproximity' in window) {
             window.addEventListener('deviceproximity', function(event) {
