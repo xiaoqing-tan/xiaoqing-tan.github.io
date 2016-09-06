@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Xiaoqing</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
+      <script src="http://dn-staticfile.qbox.me/jquery/2.1.4/jquery.min.js?ver=2.1.0"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
@@ -16,22 +17,57 @@
     </div>
     
     <script>
-      var x=document.getElementById("demo");
-      function getLocation()
-        {
-        if (navigator.geolocation)
-          {
-          navigator.geolocation.getCurrentPosition(showPosition);
-          }
-        else{x.innerHTML="Geolocation is not supported by this browser.";}
-        }
-      function showPosition(position)
-        {
-        x.innerHTML="Latitude: " + position.coords.latitude +
-        "<br />Longitude: " + position.coords.longitude;
-        }
-      getLocation();
-</script>
+$(function(){
 
+    function SchoolList(){
+      this.EARTH_RADIUS = 6378137;
+      this.PI = Math.PI;
+    }
+
+    SchoolList.prototype.getRad = function(d){
+      return d * PI/180;
+    }
+
+    SchoolList.prototype.getFlatternDistance = function(lat1,lng1,lat2,lng2){
+        var f = this.getRad((lat1 + lat2)/2);
+        var g = this.getRad((lat1 - lat2)/2);
+        var l = this.getRad((lng1 - lng2)/2);
+        var sg = Math.sin(g);
+        var sl = Math.sin(l);
+        var sf = Math.sin(f);
+        var s,c,w,r,d,h1,h2;
+        var a = EARTH_RADIUS;
+        var fl = 1/298.257;
+        sg = sg*sg;
+        sl = sl*sl;
+        sf = sf*sf;
+        s = sg*(1-sl) + (1-sf)*sl;
+        c = (1-sg)*(1-sl) + sf*sl;
+        w = Math.atan(Math.sqrt(s/c));
+        r = Math.sqrt(s*c)/w;
+        d = 2*w*a;
+        h1 = (3*r -1)/2/c;
+        h2 = (3*r +1)/2/s;
+        return d*(1 + fl*(h1*sf*(1-sg) - h2*(1-sf)*sg));
+    }
+
+    SchoolList.prototype.getLocation = function(){
+      if (navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(showPosition);
+      }else{
+        x.innerHTML="Geolocation is not supported by this browser.";}
+      }
+
+    SchoolList.prototype.showPosition = function(position){
+      x.innerHTML="Latitude: " + position.coords.latitude +
+      "<br />Longitude: " + position.coords.longitude;
+    }
+      
+    var schoolList = new SchoolList();
+    alert((schoolList.getFlatternDistance(103.936651,30.702063,104.05988620912926,30.570253443305777)/1000).toFixed(3));
+
+
+});
+</script>
   </body>
 </html>
