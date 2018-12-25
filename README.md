@@ -1,3 +1,0 @@
-# XiaoQing
-
-## Document
