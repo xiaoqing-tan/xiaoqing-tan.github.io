@@ -6,6 +6,24 @@
   <title>Xiaoqing</title>
 </head>
 <body>
-  <h1>Xiaoqing!</h1>
+  <h1 id="share">Xiaoqing!</h1>
+
+
+  <script>
+    const dom = window.document.querySelector('share');
+    
+    setInterval(async () => {
+
+      try {
+        const data = await fetch('https://invest.tanxiaoqing.top/api/s/1002594')
+        console.log(data)
+      } catch (error) {
+        console.log(error);
+      }
+
+    }, 2000);
+    
+
+  </script>
 </body>
 </html>
