@@ -6,24 +6,36 @@
   <title>Xiaoqing</title>
 </head>
 <body>
-  <h1 id="share">Xiaoqing!</h1>
-
-
+  <h1 id="share">Loading!</h1>
   <script>
-    const dom = window.document.querySelector('share');
+    const dom = window.document.querySelector('#share');
     
-    setInterval(async () => {
-
+    setInterval(() => {
       try {
-        const data = await fetch('https://invest.tanxiaoqing.top/api/s/1002594')
-        console.log(data.json())
+        fetch('https://invest.tanxiaoqing.top/api/s/1002594')
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function({ price, percent, arrow }) {
+          console.log(price, percent, arrow);
+          dom.innerHTML = `PRICE:${price} PERCENT: ${percent} ARROW: ${arrow}`
+        });
       } catch (error) {
         console.log(error);
       }
-
     }, 2000);
-    
-
   </script>
+  <style>
+    body {
+      height: 100vh;
+      line-height: 100vh;
+    }
+    #share {
+      color: #999;
+      text-align: center;
+      font-size: 12px;
+      font-weight: normal;
+    }
+  </style>
 </body>
 </html>
