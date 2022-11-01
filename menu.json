@@ -28,7 +28,8 @@
                   "title": "列表",
                   "icon": "List",
                   "permissions": [
-                     "admin"
+                     "admin",
+                     "editor"
                   ]
                }
             },
