@@ -141,6 +141,30 @@
                }
             }
          ]
+      },
+      {
+         "id": 3,
+         "name": "pages.index",
+         "path": "/pages",
+         "permissions": [
+            "admin",
+            "editor"
+         ],
+         "children": [
+            {
+               "id": 31,
+               "name": "pages.price",
+               "path": "/pages/price",
+               "component": "pages/PriceView",
+               "meta": {
+                  "title": "价签",
+                  "icon": "Avatar",
+                  "permissions": [
+                     "admin"
+                  ]
+               }
+            }
+         ]
       }
    ]
 }
