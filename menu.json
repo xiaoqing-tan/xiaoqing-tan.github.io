@@ -147,13 +147,12 @@
          "name": "pages.index",
          "path": "/pages",
          "component": "layouts/MainLayout",
-         "redirect": "/pages/price",
+         "redirect": "/pages/info",
          "meta": {
             "title": "页面",
-            "icon": "Avatar",
+            "icon": "Setting",
             "permissions": [
-               "admin",
-               "editor"
+               "admin"
             ]
          },
          "children": [
@@ -164,7 +163,7 @@
                "component": "pages/PriceView",
                "meta": {
                   "title": "价签",
-                  "icon": "Avatar",
+                  "icon": "PriceTag",
                   "permissions": [
                      "admin"
                   ]
