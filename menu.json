@@ -146,13 +146,16 @@
          "id": 3,
          "name": "pages.index",
          "path": "/pages",
+         "component": "layouts/MainLayout",
+         "redirect": "/pages/price",
          "meta": {
             "title": "页面",
             "icon": "Avatar",
-            "permissions": ["admin", "editor" ],
+            "permissions": [
+               "admin",
+               "editor"
+            ]
          },
-         "component": "layouts/MainLayout",
-         "redirect": "/pages/price",
          "children": [
             {
                "id": 31,
