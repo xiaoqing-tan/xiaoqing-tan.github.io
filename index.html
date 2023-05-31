@@ -1,40 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xiaoqing</title>
+  <title>Hello Xiaoqing!</title>
 </head>
 <body>
-  <h1 id="share">Loading!</h1>
-  <script>
-    const dom = window.document.querySelector('#share');
-    
-    setInterval(() => {
-      try {
-        fetch('https://invest.tanxiaoqing.top/api/s/0601633')
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function({ price, percent, arrow }) {
-          console.log(price, percent, arrow);
-          dom.innerHTML = `PRICE:${price} PERCENT: ${percent} ARROW: ${arrow}`
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }, 2000);
-  </script>
+  <h1>Hello Xiaoqing!</h1>
   <style>
     body {
       height: 100vh;
       line-height: 100vh;
-    }
-    #share {
-      color: #999;
-      text-align: center;
-      font-size: 12px;
-      font-weight: normal;
     }
   </style>
 </body>
